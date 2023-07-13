@@ -13,7 +13,7 @@ export default function App() {
         user: {
           _id: 2,
           name: "React Native",
-          avatar: "https://placeimg.com/140/140/any",
+          avatar: "https://loremflickr.com/140/140",
         },
       },
     ]);
@@ -30,8 +30,11 @@ export default function App() {
       messages={messages}
       onSend={(messages) => onSend(messages)}
       user={{
-        _id: 2,
+        _id: 1,
+        name: "Baker",
+        avatar: "https://loremflickr.com/140/140/",
       }}
+      showUserAvatar={true}
     />
   );
 }
