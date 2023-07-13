@@ -34,9 +34,7 @@ export default function App() {
       user={{
         _id: 1,
         name: "Baker",
-        avatar: "https://loremflickr.com/140/140/",
       }}
-      showUserAvatar={true}
     />
   );
 }
