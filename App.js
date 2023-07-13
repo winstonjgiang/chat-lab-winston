@@ -1,6 +1,12 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { GiftedChat } from "react-native-gifted-chat";
 
+const CHATBOT_USER_OBJ = {
+  _id: 2,
+  name: "React Native Chatbot",
+  avatar: "https://loremflickr.com/140/140",
+};
+
 export default function App() {
   const [messages, setMessages] = useState([]);
 
@@ -8,23 +14,43 @@ export default function App() {
     setMessages([
       {
         _id: 1,
-        text: "Hello developer",
+        text: "Hello, welcome to simple trivia! Say 'Yes' when you're ready to play!",
         createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: "React Native",
-          avatar: "https://loremflickr.com/140/140",
-        },
+        user: CHATBOT_USER_OBJ,
       },
     ]);
   }, []);
 
-  const onSend = useCallback((messages = []) => {
+  const addNewMessage = (newMessages) => {
     setMessages((previousMessages) => {
       // console.log("PREVIOUS MESSAGES:", previousMessages);
-      // console.log("NEW MESSAGE:", messages);
-      return GiftedChat.append(previousMessages, messages);
+      // console.log("NEW MESSAGE:", newMessages);
+      return GiftedChat.append(previousMessages, newMessages);
     });
+  };
+
+  const addBotMessage = (text) => {
+    addNewMessage([
+      {
+        _id: Math.round(Math.random() * 1000000),
+        text: text,
+        createdAt: new Date(),
+        user: CHATBOT_USER_OBJ,
+      },
+    ]);
+  };
+
+  const respondToUser = (userMessages) => {
+    console.log("User message text:", userMessages[0].text);
+
+    // Simple chatbot logic (aka Checkpoint 2 onwards) here!
+
+    addBotMessage("I am da response!");
+  };
+
+  const onSend = useCallback((messages = []) => {
+    addNewMessage(messages);
+    // setTimeout(() => respondToUser(messages), 1000);
   }, []);
 
   return (
@@ -35,6 +61,7 @@ export default function App() {
         _id: 1,
         name: "Baker",
       }}
+      renderUsernameOnMessage={true}
     />
   );
 }
