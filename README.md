@@ -13,7 +13,7 @@ Checkpoint 3 - Your first trivia question is working, so the chatbot tells the u
 Checkpoint 4 - Your chatbot trivia game is working with three questions!
 
 Checkpoint 5 (optional) - Add more questions to your chatbot with more interesting logic. Examples: 
- * Randomly generated math problems
  * Multi-character dialogue. For example, the first “riddle” is asked by a troll on a bridge, then you advance to the cave entrance where a witch asks you the second riddle (can you figure out how to respond as different users with GiftedChat?)
+ * Randomly generated math problems (maybe the chatbot keeps score too)
  * Hangman (this is tricky! Printing the word with the correct letters showing/hidden is a challenging “leetcode-esque” string problem)
  * Use an API to get data for trivia (e.g. for a marvel movie quote API, “Which marvel character says this quote?”)
